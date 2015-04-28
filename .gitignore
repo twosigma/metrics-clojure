@@ -10,3 +10,4 @@ checkouts/*
 .nrepl*
 *.sh
 *.bak
+.lein-repl-history
