@@ -4,6 +4,7 @@
   :license {:name "MIT"}
   :dependencies [[org.clojure/clojure "1.6.0"]
                  [io.dropwizard.metrics/metrics-core "3.1.1"]]
+  :plugins [[lein-voom "0.1.0-20150115_230705-gd96d771"]]
   :repositories {"repo.codahale.com" "http://repo.codahale.com"
                  ;; to get Clojure snapshots
                  "sonatype" {:url "http://oss.sonatype.org/content/repositories/releases"
