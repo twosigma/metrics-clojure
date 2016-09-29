@@ -1,4 +1,5 @@
 (ns metrics.core
+  (:require [clojure.string :as str])
   (:import [com.codahale.metrics MetricRegistry Metric]))
 
 (def ^{:tag MetricRegistry :doc "Default registry used by public API functions when no explicit registry argument is given"}
@@ -12,14 +13,8 @@
 (defn ^String metric-name
   [title]
   (if (string? title)
-    (MetricRegistry/name "default"
-                         ^"[Ljava.lang.String;" (into-array String ["default" ^String title]))
-    (MetricRegistry/name
-     ^String (first title)
-     ^"[Ljava.lang.String;" (into-array String
-                                        (if (= 3 (count title))
-                                          [(second title) (last title)]
-                                          (rest title))))))
+    title
+    (str/join "." title)))
 
 (defn add-metric
   "Add a metric with the given title."
